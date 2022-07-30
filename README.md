@@ -52,25 +52,25 @@
 <p>목표: json 파일 내 주요 데이터를 추출하여 npy 파일로 변환 후 딥러닝 모델을 통해 이상행위 분석 및 예측<p>
 <h4>1. json 파일 내 주요 데이터를 독립변수와 종속변수로 채택</h4>
 <ul>json 파일 내 주요 데이터 49개(48개-독립변수 / 1개-종속변수)
-<li>신체 중심 좌표...2개</li>
-<li>신체 부위별 좌표...30개</li>
-<li>신체 부위별 신체 중심 간 각도...15개</li>
-<li>주요 물체...1개</li>
-<li>상황...1개(종속변수)</li>
+    <li>신체 중심 좌표...2개</li>
+    <li>신체 부위별 좌표...30개</li>
+    <li>신체 부위별 신체 중심 간 각도...15개</li>
+    <li>주요 물체...1개</li>
+    <li>상황...1개(종속변수)</li>
 <ul>
 <br>
-<img src="result_images/datasetFormat.png" style="width: 80% height: 80%;"/>
+<img src="result_images/datasetFormat.png"/>
 <hr>
 
 <h4>2. 채택한 변수를 추출하여 npy 파일로 변환</h4>
 <p>딥러닝 모델 구축을 위해 numpy 배열 형태를 가진 npy 파일로 변환할 필요가 있음.<br>makeDataset.ipynb 실행하여 Json 폴더로부터 JsonToNpy 생성</p>
-<ul>makeDataset.inpynb 설명</ul>
-<p>각 json 파일 별로 json 형태가 달라, 형태에 맞게 version 주석을 처리해야 함</p>
-<li>다른 형식의 각 json 파일 내 주요 데이터 추출을 위해 여러 version 구성</li>
-<li>신체 중심 및 부위별 좌표, 각 프레임 별 상황 추출</li>
-<li>신체 부위별 신체 중심과의 각도 계산 후 추출</li>
-<li>독립 변수 및 종속 변수 2차원 배열로 재구성</li>
-<li>딥러닝 모델(LSTM) trian/test 수행을 위해 sequence 데이터로 변환(2차원 배열->3차원 배열)</li>
+<ul>makeDataset.inpynb 설명
+    <li>다른 형식의 각 json 파일 내 주요 데이터 추출을 위해 여러 version 구성</li>
+    <li>신체 중심 및 부위별 좌표, 각 프레임 별 상황 추출</li>
+    <li>신체 부위별 신체 중심과의 각도 계산 후 추출</li>
+    <li>독립 변수 및 종속 변수 2차원 배열로 재구성</li>
+    <li>딥러닝 모델(LSTM) trian/test 수행을 위해 sequence 데이터로 변환(2차원 배열->3차원 배열)</li>
+</ul>
 <hr>
 
 <h4>3. 딥러닝 모델 구축</h4>
