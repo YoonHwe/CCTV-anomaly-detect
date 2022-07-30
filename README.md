@@ -42,20 +42,32 @@
 <h2>mp4 파일을 활용한 이상행위 분석</h2>
 <p>목표: 영상 프레임 별로, 주요 객체를 탐지하고 사람의 부위 별 skeleton을 파악하여 이상행위가 발생하고 있는 지 파악<p>
 <p>1. YOLOv4 모델을 통한 객체 탐지</p>
-<img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/YOLOv4_objectDetection.png" style="width: 50%; height: 50%;">
+<img src="result_images/YOLOv4_objectDetection.png" style="width: 50%; height: 50%;">
 <p>2. 사람에 대한 부위 별 skeleton 탐지</p>
-<img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/skeletonDetection.png">
+<img src="result_images/skeletonDetection.png">
 <hr>
 
 <h2>json 파일을 활용한 이상행위 분석</h2>
-<p>목표: json 파일 내 주요 정보를 추출하여 npy 파일로 변환 후 딥러닝 모델을 통해 이상행위 분석 및 예측<p>
-<p>1. json 파일 내 주요 정보 추출</p>
-<ul>json 파일 내 주요 정보 49개 추출
+<p>목표: json 파일 내 주요 데이터를 추출하여 npy 파일로 변환 후 딥러닝 모델을 통해 이상행위 분석 및 예측<p>
+<h4>1. json 파일 내 주요 데이터를 독립변수와 종속변수로 채택</h4>
+<ul>json 파일 내 주요 데이터 49개(48개-독립변수 / 1개-종속변수)
 <li>신체 중심 좌표...2개</li>
 <li>신체 부위별 좌표...30개</li>
 <li>신체 부위별 신체 중심 간 각도...15개</li>
 <li>주요 물체...1개</li>
-<li>상황...1개</li>
+<li>상황...1개(종속변수)</li>
 <ul>
-<img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/datasetFormat.png">
+<img src="result_images/datasetFormat.png">
+
+<h4>2. 채택한 변수를 추출하여 npy 파일로 변환</h4>
+<p>딥러닝 모델 구축을 위해 numpy 배열 형태를 가진 npy 파일로 변환할 필요가 있음.<br>makeDataset.ipynb 실행하여 Json 폴더로부터 JsonToNpy 생성</p>
+<p>makeDataset.inpynb 설명</p>
+<p>각 json 파일 별로 json 형태가 달라, 형태에 맞게 version 주석을 처리해야 함</p>
+<ul> 주요 특징
+<li>다른 형식의 각 json 파일 내 주요 데이터 추출을 위해 version 여러 개</li>
+<li>신체 중심 및 부위별 좌표, 각 프레임 별 상황 추출</li>
+<li>신체 부위별 신체 중심과의 각도 계산 후 추출</li>
+<li>독립 변수 및 종속 변수 2차원 배열로 재구성</li>
+<li>딥러닝 모델(LSTM) trian/test 수행을 위해 sequence 데이터로 변환(2차원 배열->3차원 배열)</li>
+</ul>
 <hr>
