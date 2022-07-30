@@ -45,3 +45,17 @@
 <img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/YOLOv4_objectDetection.png" style="width: 50%; height: 50%;">
 <p>2. 사람에 대한 부위 별 skeleton 탐지</p>
 <img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/skeletonDetection.png">
+<hr>
+
+<h2>json 파일을 활용한 이상행위 분석</h2>
+<p>목표: json 파일 내 주요 정보를 추출하여 npy 파일로 변환 후 딥러닝 모델을 통해 이상행위 분석 및 예측<p>
+<p>1. json 파일 내 주요 정보 추출</p>
+<ul>json 파일 내 주요 정보 49개 추출
+<li>신체 중심 좌표...2개</li>
+<li>신체 부위별 좌표...30개</li>
+<li>신체 부위별 신체 중심 간 각도...15개</li>
+<li>주요 물체...1개</li>
+<li>상황...1개</li>
+<ul>
+<img src="/Users/heoyoonhwe/CCTV-anomaly-detect/result_images/datasetFormat.png">
+<hr>
