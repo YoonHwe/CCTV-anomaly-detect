@@ -45,7 +45,7 @@
 <p>1. YOLOv4 모델을 통한 객체 탐지</p>
 <img src="result_images/YOLOv4_objectDetection.png" style="width: 50%; height: 50%;">
 <p>2. 사람에 대한 부위 별 skeleton 탐지</p>
-<img src="result_images/skeletonDetection.png">
+<img src="result_images/skeletonDetection.png"/>
 <hr>
 
 <h2>json 파일을 활용한 이상행위 분석</h2>
@@ -59,7 +59,8 @@
 <li>상황...1개(종속변수)</li>
 <ul>
 <br>
-<img src="result_images/datasetFormat.png" style="width: 80% height: 80%;">
+<img src="result_images/datasetFormat.png" style="width: 80% height: 80%;"/>
+<hr>
 
 <h4>2. 채택한 변수를 추출하여 npy 파일로 변환</h4>
 <p>딥러닝 모델 구축을 위해 numpy 배열 형태를 가진 npy 파일로 변환할 필요가 있음.<br>makeDataset.ipynb 실행하여 Json 폴더로부터 JsonToNpy 생성</p>
@@ -75,5 +76,5 @@
 <h4>3. 딥러닝 모델 구축</h4>
 <p>사용할 모델: RNN 기반 LSTM 모델</p>
 <p>1. npy 파일 로드<br>2. 각 상황별 4개는 train 1개는 test set으로 채택<br></p>
-<img src="result_images/modelSummary.png" style="width: 80% height: 80%;">
+<img src="result_images/modelSummary.png" style="width: 80% height: 80%;"/>
 <hr>
